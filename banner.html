@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Homework</title>
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            background: #efefef;
+        }
+
+        #box {
+            width: 600px;
+            box-sizing: border-box;
+            margin: 30px auto;
+        }
+
+        #big-img-box {
+            width: 100%;
+        }
+
+        #small-img-box {
+            width: 100%;
+            overflow: hidden;
+        }
+
+        img {
+            cursor: pointer;
+        }
+
+        .small:hover {
+            opacity: 0.7;
+        }
+
+        #small-img-box img {
+            width: 12%;
+            margin-right: 7px;
+            margin-left: 2px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <div id="big-img-box">
+            <img src="../img/1.jpg" id="bigImg" alt="">
+        </div>
+        <div id="small-img-box">
+            <img class="small" src="../img/1.jpg" onclick="changeImg(this)" alt="">
+            <img class="small" src="../img/2.jpg" onclick="changeImg(this)" alt="">
+            <img class="small" src="../img/3.jpg" onclick="changeImg(this)" alt="">
+            <img class="small" src="../img/4.jpg" onclick="changeImg(this)" alt="">
+            <img class="small" src="../img/5.jpg" onclick="changeImg(this)" alt="">
+            <img class="small" src="../img/6.jpg" onclick="changeImg(this)" alt="">
+            <img class="small" src="../img/7.jpg" onclick="changeImg(this)" alt="">
+        </div>
+    </div>
+    <script>
+        function changeImg(th) {
+            bigImg['src'] = th.src;
+        }
+
+    </script>
+</body>
+
+</html>
