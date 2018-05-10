@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>this3</title>
+</head>
+
+<body>
+    <script>
+        var obj = {
+            uname: 'jack',
+            say: function () {
+                console.log(this.uname)
+            }
+        }
+        function fun(x, y) {
+            console.log(this.uname + x + y)
+
+        }
+
+
+        var foo = obj.say.bind(obj)
+        foo()
+        // fun()
+        // fun.call(obj,'hello','hi')  用call是this指向obj  'hello'和'hi'是对应传参 第一个值必须传,而且要是对象,可以传{}
+        // fun.apply(obj,['hello','hi']) apply和call方法一样,但是必须传数组
+
+        // var arr=[1,2,3,4,5]
+        // console.log(Math.max.apply(null,arr))
+        // fun.bind(obj)  用bind是this和obj绑定
+    </script>
+</body>
+
+</html>

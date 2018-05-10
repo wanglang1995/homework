@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>js控制css</title>
+</head>
+
+<body>
+    <div id="box"> <!--先创建一个div,并赋予id值-->
+        hello div
+    </div>
+
+
+    <script>
+        // box.style['color']='red'
+        function Style(id) {
+            this.el = document.getElementById(id)//捕获id标签,this.el等于一个对象
+        }
+        Style.prototype.css=function(attr,value){
+            this.el.style[attr]=value
+            return this //返回一个对象,使其可以连续化操作
+        }
+        var style = new Style('box')//实例化
+        style.css('color','green').css('border','5px solid blue')//设置css属性
+        // console.log(style.el)
+    </script>
+</body>
+
+</html>

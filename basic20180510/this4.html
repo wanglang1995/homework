@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>  
+         
+        function Foo() {
+            this.result = 0//初始值为零
+        }
+        
+        //加法
+        Foo.prototype.add = function (x, y) {
+            this.result += x
+            return this//返回this,使其为对象,可以连续化操作
+        }
+
+        //减法
+        Foo.prototype.sub = function (x) {
+            this.result -= x
+            return this//同上
+        }
+
+        //创建新对象
+        var foo = new Foo()
+        // foo.add(1, 2)
+        // foo.sub(4)
+        var res = foo.add(1).sub(4).add(100).result //定义res为计算结果,便于输出
+        // console.log(foo.result)
+        console.log(res)//输出res,即计算值
+    </script>
+</body>
+
+</html>

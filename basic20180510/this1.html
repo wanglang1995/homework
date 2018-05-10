@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>this1</title>
+</head>
+
+<body>
+    <script>
+        //this 的用法1,当函数作为对象里的方法被调用时，它们的 this 是调用该函数的对象。
+        function f(){
+            console.log(this.username)//只要函数赋值给一个变量,this的指向就会发生变化
+        }
+        var obj1 = {    //不通过new的方法生成一个对象
+            username: 'rose',
+            age: 20,
+            say:f   //say方法 f是变量
+        }
+        obj1.say()
+    </script>
+</body>
+
+</html>

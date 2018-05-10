@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>对象</title>
+</head>
+
+<body>
+
+
+    <script>
+        // function fun(){}
+
+        // var person ={
+        //     username:'jack',
+        //     age:20,
+        //     say:function(){
+        //         return 'hello'
+        //     }
+        // }
+        // 当一个函数用作构造函数时（使用new关键字），它的this被绑定到正在构造的新对象。
+
+        function Person(username,age) {         //构造函数
+            this.username = username  //this在当前运行时指向当前对象
+            this.age=age
+            this.say=function(text){
+                return text
+            }
+        }
+
+        // var person = {}
+        var person1 = new Person('jack',20)//new新的方法并传值
+        var person2 = new Person('jeason',23)
+
+        // person.username = 'jack'
+        console.log(person1.say('hello'))
+        console.log(person2.username)
+
+    </script>
+</body>
+
+</html>

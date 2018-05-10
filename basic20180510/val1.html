@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>原型</title>
+</head>
+
+<body>
+    <script>
+        /*
+            函数对象
+        */
+
+        var fun = new Function()
+        var fun = function () { }
+
+        var arr = new Array()
+        var arr = []
+
+        var obj = Object()
+        var obj = {}
+
+        console.log(fun instanceof Function)
+        console.log(fun.prototype)
+        console.log(obj.prototype)//只有构造函数才有prototype
+
+        //定义Person并传参,使其成为模板
+        var Person = function (uname, age) {
+            this.uname = uname
+            this.age = age
+
+        }
+
+        //改变person的prototype
+        Person.prototype = {
+            π: '3.14',
+            say: function () {
+                return 'hello'
+            }
+        }
+        var p1 = new Person('jack', 20)//通过new方法获得p1
+        var p2 = new Person('lili', 21)
+        console.log(p1.say())
+        console.log(p2.say())
+        console.log(p1.π)
+        console.log(p2.π)
+        console.log((p1.π) * 3)
+        console.log(p1.__proto__ === p2.__proto__)//true,p1.__proto__和p2.__proto__指向的内存地址完全相同
+        console.log(p1.__proto__ === p1.prototype)
+        
+
+        //改变堆内存里的数据,由于内存地址不变,内存数据发送改变,所有P1.π===p2.π
+        p2.__proto__.π = 3.141592678
+        console.log(p1.π)
+        console.log(p2.π)
+    </script>
+</body>
+
+</html>

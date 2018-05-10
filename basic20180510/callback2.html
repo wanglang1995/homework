@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>回调函数</title>
+</head>
+
+<body>
+    <script>
+
+        //创建遍历数组原型的函数方法
+        Array.prototype.mapArr = function (cb) {
+            for (var i = 0; i < this.length; i++) {
+                cb(this[i])
+                //this指向当前实例对象
+                
+            }
+        }
+        var obj = {
+            a: 'aaa',//创建string a
+
+            //创建数组p
+            p: ['1', '2', '3', '4'],
+            map: function () {
+
+                //使用严格模式使其报错
+                'use strict'
+                // 或者var _this=this
+                //使 _this代替this指向被调用的mapArr
+                this.p.mapArr(function (item) {
+                    console.log(this.a+item)
+                })
+            }
+        }
+        obj.map()//调用函数
+
+
+        // var arr1 = [1,2,3,4,5,6]
+        // arr1.mapArr(function(item){
+        //     console.log(item)
+        // })
+    </script>
+</body>
+
+</html>

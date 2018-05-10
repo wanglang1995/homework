@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>basic2</title>
+</head>
+
+<body>
+    <script>
+         
+        function Person() {
+            if(this instanceof Person ===false){
+                return new Person
+            }//这是避免创建函数时忘记加new的补救办法,没有加new是符合判断式,会自动加new
+            this.username = 'lili'
+            this.age = 23
+            this.say = function () {
+                return 'my name is' + this.username
+                //返回一个值,为 my name is 加上this代指的Person的username
+            }
+        }
+        //还有一种方法,使用严格模式,使其报错
+        var p1 = new Person()//定义一个新函数,以Person为模板
+        console.log(p1 instanceof Object)//true,P1是由对象创立的
+
+        var a = 'abc'
+        a = new String('abc')
+        console.log(a instanceof String)//true,a是由字符串创立的
+    </script>
+</body>
+
+</html>
