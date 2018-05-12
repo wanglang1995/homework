@@ -53,4 +53,5 @@ i{
 }
 .inp:hover{
     background: #0E87D0;
+    cursor:pointer;
 }
