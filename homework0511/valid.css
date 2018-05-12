@@ -1,0 +1,56 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+html,body{
+    background: #efefef;
+}
+form{
+    width: 60%;
+    margin: 30px auto;
+}
+p{
+    width: 100%;
+    margin-bottom: 10px;
+
+}
+h1{
+    color: #0AB8F5;
+    margin-bottom: 20px;
+}
+fieldset{
+    border: 3px solid #ccc;
+    border-radius: 5px;
+}
+input{
+    border: none;
+    display: inline-block;
+    width: 40%;
+    height: 25px;
+    border-radius: 5px;
+}
+span{
+    display: inline-block;
+    width: 10%;
+    font-size: 12px;
+    margin-left: 5%;
+}
+i{
+    font-size: 12px;
+}
+.inp{
+    font-size: 18px;
+    height: 30px;
+    font-family: "SimSun", "宋体";
+    line-height: 30px;
+    background:#0AB8F5 ;
+    color: #f0f3ef;
+    margin-top: 50px;
+    margin-left:  30%;
+    margin-bottom: 20px;
+    font-weight: bold;
+    box-sizing: border-box;
+}
+.inp:hover{
+    background: #0E87D0;
+}
