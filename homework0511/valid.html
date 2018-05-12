@@ -32,7 +32,7 @@
             </p>
             <p>
                 <span>昵称:</span>
-                <input type="text" name="uname" placeholder="&nbsp;&nbsp;请输入您的手机号码">
+                <input type="text" name="uname" placeholder="&nbsp;&nbsp;请输入您的昵称">
                 <i id="unamemsg"> </i>
             </p>
             <p>
@@ -59,7 +59,7 @@
                 el: 'reiglist',
                 rules: {
                     'username': {
-                        reg: /^[a-zA-Z]+.{6,50}$/,
+                        reg: /^[a-zA-Z]+.{5,50}$/,
                         message: '用户名必须以字母开头且为6-50字符间',
                         messageTag:'usernamemsg'
                     },
