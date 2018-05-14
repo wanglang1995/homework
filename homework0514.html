@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // var arr=[6,8,3,4,9];
+
+
+        //遍历数组,只要有任意的数组元素大于等于5即输出true否则输出false.some方法
+        Array.prototype.mySome = function (cb) {
+            for (var i=0;i<this.length;i++){
+                if(cb(this[i])){
+                    return true;
+                }
+            }
+            return false;
+        };
+        var arr=[6,8,3,4,9];
+       var result= arr.mySome(function (num,index,array) {
+            return num>=5;
+        });
+       console.log(result);
+
+        //遍历数组,所有的数组元素都大于或等于4时才输出true否则输出false.every方法
+        Array.prototype.myEvery = function (cb) {
+            for (var i=0;i<this.length;i++){
+                if(!cb(this[i])){
+                    return false;
+                }
+            }
+            return true;
+        };
+        var result2= arr.myEvery(function (num,index,array) {
+            return num>=4;
+        });
+        console.log(result2);
+    </script>
+</body>
+</html>
