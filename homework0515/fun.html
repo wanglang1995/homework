@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+      <ul class="list" id="list">
+          <li class="li1">l1</li>
+          <li>l2</li>
+          <li>l3</li>
+          <li>l4</li>
+      </ul>
+      <div class="box1">
+          box1
+      </div>
+
+      <script src="../tools.js"></script>
+      <script>
+          $.on('click','li',function (event) {
+              this.innerHTML += 'hello'
+          });
+
+          $.q('.li1,.box1').style('color','red').style('fontSize','20px').style('background','#00ffff')
+
+          // document.addEventListener('click',function () {
+          //     if (event.target['classname']==='li') {
+          //         console.log('li')
+          //     }
+          // },false)
+      </script>
+</body>
+</html>
