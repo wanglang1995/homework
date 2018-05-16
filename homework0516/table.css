@@ -1,0 +1,73 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+html,body{
+    background: #efefef;
+    font-size: 10px;
+}
+button{
+    display: inline-block;
+    width: 4rem;
+    /*background: #fff;*/
+    color: #555;
+}
+table button{
+    margin-left: 1rem;
+}
+.p1{
+    margin-top: 2rem;
+    margin-left: 35rem;
+    margin-bottom: 2rem;
+}
+.p1 span{
+    font-size: 1.5rem;
+    color: #555;
+}
+#tableUsers{
+    margin-left: 35rem;
+    width: 500px;
+    color: #333;
+
+    border: 3px solid #4183C4;
+}
+#formAdd,#formEdit{
+    margin-top: 2rem;
+    margin-left: 35rem;
+    margin-bottom: 2rem;
+    width: 300px;
+
+}
+#formAdd input,#formEdit input{
+    display: inline-block;
+    height: 2rem;
+    border: none;
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    line-height: 2rem;
+}
+#formEdit .inp1,#formEdit .inp2,#formAdd .inp1,#formAdd .inp2{
+    background: #4183C4;
+    line-height: 1.1rem;
+    color: #f0f3ef;
+}
+#formAdd .inp2,#formEdit .inp2{
+    background: salmon;
+}
+td,th{
+    border: 1px solid #4183C4;
+}
+fieldset{
+    padding: 1rem;
+    border: 2px solid #0AB8F5;
+}
+fieldset legend{
+    color: cornflowerblue;
+    font-size: 1.5rem;
+}
+/*input{*/
+    /*display: inline-block;*/
+    /*height: 2rem;*/
+    /*border: none;*/
+    /*margin-bottom: 1rem;*/
+/*}*/

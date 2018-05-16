@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表格操作</title>
+    <link rel="stylesheet" href="./table.css">
+</head>
+<body>
+    <p class="p1">
+        <span>表格管理</span>
+        <button onclick="formAdd.style.display='block'">添加</button>
+    </p>
+
+    <table id="tableUsers">
+        <thead>
+            <tr>
+                <th>姓名</th>
+                <th>年龄</th>
+                <th>性别</th>
+                <th>邮箱</th>
+                <th>手机</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>lucy</td>
+                <td>20</td>
+                <td>girl</td>
+                <td>lucy@qq.com</td>
+                <td>13864644981</td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+    <form id="formAdd" style="display: none">
+        <fieldset>
+            <legend><h1>添加</h1></legend>
+            <p>
+                <input type="text" name="username" placeholder="username">
+            </p>
+            <p>
+                <input type="number" name="age" placeholder="age">
+            </p>
+            <p>
+                <input type="radio" name="sex" value="boy" checked><span>男</span>
+                <input type="radio" name="sex" value="girl"><span>女</span>
+            </p>
+            <p>
+                <input type="text" name="email" placeholder="email">
+            </p>
+            <p>
+                <input type="text" name="phone" placeholder="phone">
+            </p>
+            <p>
+                <input class="inp1" type="button" value="保存" onclick="save('add')">
+                <input class="inp2" type="button" value="取消" onclick="formAdd.style.display='none';formAdd.reset()">
+            </p>
+        </fieldset>
+    </form>
+
+    <form id="formEdit" style="display: none">
+        <fieldset>
+            <legend>编辑</legend>
+            <p>
+                <input type="text" name="username" placeholder="username">
+            </p>
+            <p>
+                <input type="number" name="age" placeholder="age">
+            </p>
+            <p>
+                <input type="radio" name="sex" value="boy" checked>男
+                <input type="radio" name="sex" value="girl">女
+            </p>
+            <p>
+                <input type="text" name="email" placeholder="email">
+            </p>
+            <p>
+                <input type="text" name="phone" placeholder="phone">
+            </p>
+            <p>
+                <input class="inp1" type="button" value="保存"
+                       onclick="save('edit');formEdit.style.display='none';formAdd.reset()">
+                <input class="inp2" type="button" value="取消" onclick="formEdit.style.display='none';formAdd.reset()">
+            </p>
+        </fieldset>
+    </form>
+    <script>
+
+        var users=[
+            {id:1,username:'lucy',age:20,sex:'girl',email:'lucy@qq.com',phone:'13864644981'},
+            {id:2,username:'lilis',age:22,sex:'girl',email:'lili@qq.com',phone:'13864644987'},
+        ];
+
+        var tableUsers = document.getElementById('tableUsers');
+        var tbody = document.querySelector('tbody');
+        function showUsers() {
+            var html='';
+            users.forEach(function (row,index) {
+                html+=`
+            <tr>
+                <td>`+ row.username +`</td>
+                <td>`+ row.age+`</td>
+                <td>`+ row.sex+`</td>
+                <td>`+ row.email+`</td>
+                <td>`+ row.phone+`</td>
+                <td><button onclick="edit.call(this.parentElement.parentElement,`+index+`)">编辑</button><button onclick="del(this)">删除</button></td>
+            </tr>
+            `
+            });
+            tbody.innerHTML = html;
+        }
+        showUsers();
+
+        var formEdit = document.getElementById('formEdit');
+        var curTds;
+        function edit(index) {
+            formEdit.style.display='block';
+            curTds = this.querySelectorAll('td');
+            var row = users[index];
+            console.log(users[index]);
+            formEdit.username.value = row.username,
+            formEdit.age.value = row.age,
+            formEdit.sex.value = row.sex,
+            formEdit.email.value = row.email,
+            formEdit.phone.value = row.phone
+
+
+        }
+
+        function del(el) {
+            if(window.confirm('确认删除吗?')){
+                el.parentElement.parentElement.remove();
+            }
+        }
+
+        var formAdd = document.getElementById('formAdd');
+        function save(type) {
+            var username = formAdd.username.value,
+                age = formAdd.age.value,
+                sex = formAdd.sex.value,
+                email = formAdd.email.value,
+                phone = formAdd.phone.value;
+            if (type==='add') {
+                let html=`
+                <tr>
+                    <td>`+ username +`</td>
+                    <td>`+ age+`</td>
+                    <td>`+ sex+`</td>
+                    <td>`+ email+`</td>
+                    <td>`+ phone+`</td>
+                    <td><button onclick="edit.call(this.parentElement.parentElement)">编辑</button><button
+                    onclick="del(this)">删除
+                    </button></td>
+                </tr>`;
+                tbody.insertAdjacentHTML('beforeend',html);
+                formAdd.reset();
+                formAdd.style.display='none';
+            } else{
+                var username = formEdit.username.value,
+                    age = formEdit.age.value,
+                    sex = formEdit.sex.value,
+                    email = formEdit.email.value,
+                    phone = formEdit.phone.value;
+
+                curTds[0].innerHTML=username;
+                curTds[1].innerHTML=age;
+                curTds[2].innerHTML=sex;
+                curTds[3].innerHTML=email;
+                curTds[4].innerHTML=phone;
+
+                formEdit.reset();
+                formEdit.style.display='none';
+            }
+        }
+
+    </script>
+</body>
+</html>
