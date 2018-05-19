@@ -1,0 +1,98 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+html,body{
+    background: #efefef;
+}
+#box{
+    width: 500px;
+    margin-left: 30%;
+    margin-top: 50px;
+    padding: 20px;
+    border: 1px solid #999;
+    border-radius: 15px;
+    overflow: hidden;
+}
+#list-box,#car-box{
+    width: 200px;
+    float: left;
+}
+#car-box{
+    box-sizing: border-box;
+    margin-top: 5px;
+    margin-left: 100px;
+    height: 450px;
+    border: 1px solid #666666;
+    border-radius: 5px;
+}
+#car-box ul{
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    margin-top: -450px;
+}
+#list{
+    width: 100%;
+}
+#list li{
+    width: 100%;
+    height: 40px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    line-height: 40px;
+    font-size: 14px;
+    font-family: 微软雅黑;
+    background: skyblue;
+    text-align: center;
+    color: #333333;
+    border-radius: 5px;
+    cursor: pointer;
+}
+#list li i,#car li i{
+    display: inline-block;
+    height: 100%;
+    width: 40px;
+    float: right;
+    margin-right: 20px;
+}
+#list li i{
+    display: none;
+}
+#list li i input{
+    display: none;
+}
+#list li i input,#car li i input{
+    display: inline-block;
+    width: 40px;
+    height: 30px;
+    opacity: 0.6;
+    border: none;
+}
+ li{
+    cursor: pointer;
+    width: 100%;
+    height: 40px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    line-height: 40px;
+    font-size: 14px;
+    font-family: 微软雅黑;
+    background: pink;
+    text-align: center;
+    color: #333333;
+    border-radius: 5px;
+    opacity: 0.9;
+}
+span{
+    display: block;
+    width: 100%;
+    height: 100%;
+    color: #666;
+    line-height: 140px;
+    font-size: 50px;
+    text-align: center;
+    position: relative;
+}

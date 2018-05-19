@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./dragula-master/dist/dragula.min.css">
+    <link rel="stylesheet" href="./shopcar.css">
+    <title>购物车练习</title>
+
+</head>
+<body>
+    <div id="box">
+        <div id="list-box">
+            <ul id="list">
+                <li>白菜 <i><input type="number" value="1"></i></li>
+                <li>黄瓜 <i><input type="number" value="1"></i></li>
+                <li>茄子 <i><input type="number" value="1"></i></li>
+                <li>西红柿 <i><input type="number" value="1"></i></li>
+                <li>马铃薯 <i><input type="number" value="1"></i></li>
+                <li>豇豆 <i><input type="number" value="1"></i></li>
+                <li>藕 <i><input type="number" value="1"></i></li>
+                <li>豆腐 <i><input type="number" value="1"></i></li>
+                <li>芹菜 <i><input type="number" value="1"></i></li>
+                <li>青椒 <i><input type="number" value="1"></i></li>
+            </ul>
+        </div>
+        <div id="car-box">
+            <span>
+                购<br>物<br>车
+            </span>
+            <ul id="car">
+            </ul>
+        </div>
+    </div>
+
+    <script src="./dragula-master/dist/dragula.min.js"></script>
+    <script>
+        let list = document.getElementById('list');
+        let car = document.getElementById('car');
+
+        dragula([list,car],{
+            copy:function (el,src) {
+                return src===list
+            },
+            accepts:function (el,src) {
+                return  src===car;
+            },
+            removeOnSpill:function (src) {
+                return src===car
+            },
+        });
+        car.addEventListener('mouseover',function () {
+            if (car.children.length>0){
+                for (var i=0;i<car.children.length;i++){
+                    for (var x=0;x<car.children.length;x++){
+                        var Numi = parseInt(car.children[i].firstElementChild.firstChild.value);
+                        var Numx = parseInt(car.children[x].firstElementChild.firstChild.value);
+                        if (i!==x&&car.children[i].childNodes[0].textContent===car.children[x].childNodes[0].textContent){
+                            if (Numi>=Numx) {
+                                car.children[x].remove();
+                                car.children[i].firstElementChild.firstChild.value=Numi+1;
+                            }else {
+                                car.children[i].remove();
+                                car.children[x].firstElementChild.firstChild.value=Numx+1;
+                            }
+                        }
+                    }
+                }
+            }
+        },false);
+        car.addEventListener('change',function () {
+            if (car.children.length!==0){
+                for (var y = 0;y<car.children.length;y++) {
+                    var Numy = parseInt(car.children[y].firstElementChild.firstChild.value);
+                    if (Numy<1) {
+                        car.children[y].remove();
+                    }
+
+                }
+            }
+        },false);
+
+    </script>
+</body>
+</html>
