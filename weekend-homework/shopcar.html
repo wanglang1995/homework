@@ -34,28 +34,28 @@
 
     <script src="./dragula-master/dist/dragula.min.js"></script>
     <script>
-        let list = document.getElementById('list');
+        let list = document.getElementById('list');//捕获拖拽位置
         let car = document.getElementById('car');
 
         dragula([list,car],{
-            copy:function (el,src) {
+            copy:function (el,src) {    //复制
                 return src===list
             },
-            accepts:function (el,src) {
+            accepts:function (el,src) {     
                 return  src===car;
             },
-            removeOnSpill:function (src) {
+            removeOnSpill:function (src) {  //购物车删除
                 return src===car
             },
         });
-        car.addEventListener('mouseover',function () {
-            if (car.children.length>0){
+        car.addEventListener('mouseover',function () {      //菜单向购物车拖拽时,购物车内有相同商品是,购物车内的商品数量+1,且不出现重复的商品
+            if (car.children.length>0){     //购物车有商品是开始执行
                 for (var i=0;i<car.children.length;i++){
                     for (var x=0;x<car.children.length;x++){
-                        var Numi = parseInt(car.children[i].firstElementChild.firstChild.value);
+                        var Numi = parseInt(car.children[i].firstElementChild.firstChild.value);  //获取商品的数量
                         var Numx = parseInt(car.children[x].firstElementChild.firstChild.value);
                         if (i!==x&&car.children[i].childNodes[0].textContent===car.children[x].childNodes[0].textContent){
-                            if (Numi>=Numx) {
+                            if (Numi>=Numx) {       //保留商品数量大的,删除小的
                                 car.children[x].remove();
                                 car.children[i].firstElementChild.firstChild.value=Numi+1;
                             }else {
@@ -67,18 +67,16 @@
                 }
             }
         },false);
-        car.addEventListener('change',function () {
+        car.addEventListener('change',function () {         //当用户操作商品数量时,商品数量小于1是移除商品
             if (car.children.length!==0){
                 for (var y = 0;y<car.children.length;y++) {
                     var Numy = parseInt(car.children[y].firstElementChild.firstChild.value);
                     if (Numy<1) {
                         car.children[y].remove();
                     }
-
                 }
             }
         },false);
-
     </script>
 </body>
 </html>
