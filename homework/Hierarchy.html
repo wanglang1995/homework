@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>层级</title>
+    <script src="jquery-3.3.1.min.js"></script>
+    <style>
+        #box {
+            width: 50%;
+            margin-left: 25%;
+            background: #0AB8F5;
+        }
+
+        #span-box {
+            width: 80%;
+            margin-left: 10%;
+            background: crimson;
+            padding: 20px;
+        }
+
+        #span-box span {
+            display: inline-block;
+            height: 40px;
+            width: 10%;
+            text-align: center;
+            line-height: 40px;
+            color: white;
+            margin: 10px;
+            background: #ccc;
+        }
+
+        #list {
+            width: 70%;
+            margin-left: 15%;
+            background: #b4654d;
+            list-style: none;
+        }
+
+        #list li {
+            height: 40px;
+            margin-bottom: 10px;
+            background: #dddddd;
+            line-height: 40px;
+            width: 50%;
+
+        }
+
+        #hello {
+            width: 60%;
+            margin-left: 20%;
+            background: #00ffff;
+            padding: 10px;
+        }
+
+        #hello i {
+
+            display: inline-block;
+            width: 10%;
+            height: 30%;
+            background: white;
+            text-align: center;
+
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <p id="span-box">
+            <span><i>hey</i></span>
+            <span>jay</span>
+            <span>jue</span>
+        </p>
+        <ul id="list">
+            <input type="text">
+            <li>L1</li>
+            <li>L2</li>
+            <li>L3</li>
+            <li>L4</li>
+            <li>L5</li>
+            <input type="text">
+        </ul>
+        <p id="hello">
+            <i>hello</i>
+            <input type="text">
+        </p>
+    </div>
+    <script>
+        console.log($('#span-box>span')); //选择#span-box下的所有直接子元素,得到直接子元素三个span组成的数组
+        console.log($('#span-box i'));    //选择#span-box下的所有子孙元素,得到hey
+        console.log($('i+input'));  //选择i标签附近的input标签
+        console.log($('input ~ li'));   //查找所有跟在 input的元素后面的所有 li。注意，跟在后面的 input 不会被选中，因为它不是li 。
+    </script>
+</body>
+</html>

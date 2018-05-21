@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>子元素过滤</title>
+    <script src="jquery-3.3.1.min.js"></script>
+    <style>
+        #box{
+            width: 50%;
+            margin-left: 25%;
+            background: #0AB8F5;
+        }
+        #span-box{
+            width: 80%;
+            margin-left: 10%;
+            background: crimson;
+            padding: 20px;
+        }
+        #span-box span{
+            display: inline-block;
+            height: 40px;
+            width: 10%;
+            text-align: center;
+            line-height: 40px;
+            color: white;
+            margin: 10px;
+            background: #ccc;
+        }
+        #list{
+            width: 70%;
+            margin-left: 15%;
+            background: #b4654d;
+            list-style: none;
+        }
+        #list li{
+            height: 40px;
+            margin-bottom: 10px;
+            background: #dddddd;
+            line-height: 40px;
+            width: 50%;
+
+        }
+        #hello{
+            width: 60%;
+            margin-left: 20%;
+            background: #00ffff;
+            padding: 10px;
+        }
+        #hello i{
+
+            display: inline-block;
+            width: 10%;
+            height: 30%;
+            background: white;
+            text-align: center;
+
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <p id="span-box">
+            <span><i>hey</i></span>
+            <span>jay</span>
+            <span>jue</span>
+        </p>
+        <ul id="list">
+            <li>L1</li>
+            <li>L2</li>
+            <li>L3</li>
+            <li>L4</li>
+            <li>L5</li>
+        </ul>
+        <p id="hello">
+            <i>hello</i>
+        </p>
+    </div>
+
+    <script>
+        console.log($('ul li:first-child')); //选择父级元素下的第一个li 得到L1
+        console.log($('ul li:last-child'));    //选择父级元素下的最后一个li 得到L5
+        console.log($('span:first-of-type'));   //选择span元素的第一个兄弟元素,得到hey
+        console.log($('span:last-of-type'));    //选择span元素的最后一个兄弟元素,得到jue
+        console.log($('ul li:nth-child(2)'));  //选择li父元素下的第二个子元素,得到L2
+        console.log($('ul li:nth-last-child(3)')); //选择li父元素下的倒数第三个子元素,得到L3
+        console.log($('ul li:nth-last-of-type(1)'));//选择li父元素下的倒数第一个子元素,得到L5
+        console.log($('span:nth-of-type(2)'));  //选择同属于一个父元素之下，第二个span标签。得到Jay
+        console.log($('i:only-child')); //选择i标签是父元素唯一的子元素,得到hey和hello.
+        console.log($('div:only-of-type'));   //选择所有没有兄弟元素div,只获得最大的#box
+    </script>
+</body>
+</html>
